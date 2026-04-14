@@ -1,215 +1,181 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>F1 Cars</title>
 
 <style>
+
 body {
-    font-family:'LuciSans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif, sans-serif;
     margin: 0;
-    background-color: #0b0b0b;
-    color: #ffffff;
+    background-color: #1c1515;
+    color: white;
+    font-family: Arial, sans-serif;
     padding-bottom: 60px;
 }
-.title {
-    font-family: 'Anton', sans-serif;
-    font-size: 50px;
-    color: white;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    text-align: center;
-}
 
-
+/* HEADER */
 .header {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     padding: 15px 30px;
-    background: #e10600;
-    color: white;
-    gap: 15px;
+    background: #eb7773;
+    gap: 20px;
 }
+
+.title {
+    font-family: 'Anton', sans-serif;
+    font-size: 50px;
+    margin: 0;
+    
+}
+
+/* MAIN HEADING */
 .f1-heading {
     font-family: 'Orbitron', sans-serif;
-    font-size: 48px;
-    font-weight: 900;
     text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 5px;
-    color: #ffffff;
-    margin: 30px 0;
-    text-shadow: 0 0 10px rgba(225, 6, 0, 0.3);
-}
-.logo {
-    height: 40px;
-    width: auto;
-    left: auto;
+    font-size: 40px;
+    margin: 20px 0;
 }
 
-nav {
-    background: #ebe5e5;
-    padding: 10px;
-    text-align: center;
-}
-
-nav a {
-    color: black;
-    margin: 0 10px;
-    text-decoration: none;
-}
-
-nav a:hover {
-    color: gray;
-}
-
-/* ✅ FIXED: container now works */
+/* GRID 2 COLUMNS */
 .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    padding: 20px;
 }
 
+/* BASE BOX */
 .car-box {
-    background: #1f1f1f;
-    border: 1px solid #e10600;
     padding: 20px;
-    color: white;
+    border-radius: 10px;
     text-align: center;
+    transition: 0.3s;
 }
+
+.car-box:hover {
+    transform: scale(1.03);
+}
+
+/* CAR IMAGE */
 .car-box img {
     width: 100%;
     height: 150px;
     object-fit: contain;
 }
 
+/* TEAM COLORS */
+.mercedes { background: #00D2BE; color: black; }
+.ferrari  { background: #DC0000; }
+.mclaren  { background: #FF8700; color: black; }
+.redbull  { background: #0600EF; }
+.alpine   { background: #0090FF; }
+.haas     { background: #ffffff; color: black; }
+.audi     { background: #BFBFBF; color: black; }
+.williams { background: #005AFF; }
+.cadillac { background: #0f0f0f; border: 1px solid #555; }
+.aston    { background: #006F62; }
+
 .f1-title {
     font-size: 20px;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    text-align: center;
-    color: #ffffff;
-}
-
-.f1-title:hover {
-    color: #e10600;
-    text-shadow: 0 0 10px #e10600;
-    transition: 0.3s;
-}
-
-.drivers {
-    margin-top: 10px;
+    font-weight: bold;
 }
 
 .drivers span {
     display: block;
-    font-size: 16px;
-    color: #cccccc;
+    font-size: 14px;
 }
 
-.drivers span:hover {
-    color: #e10600;
-    text-shadow: 0 0 10px #e10600;
-    transition: 0.3s;
-}
+/* RESPONSIVE */
 @media (max-width: 700px) {
     .container {
         grid-template-columns: 1fr;
     }
 }
+
 footer {
-    background: #333;
-    color: white;
     text-align: center;
     padding: 10px;
+    background: #222;
     position: fixed;
     bottom: 0;
     width: 100%;
 }
+
 </style>
 </head>
 
 <body>
 
 <header class="header">
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAQwAAACUCAMAAABREOc7AAAAb1BMVEX////uAAD4srLuBQXvLi76ycnwPz/5wcH++fn//Pz+9PT97e3vKCj+8fH0g4P0iYn1kJDzcXH96Oj0f3/zd3f71tb60NDuGhr2mpr1lJTuEhL839/2n5/4uLj3ra3xUlLwSUnyZ2fwODj3p6fxW1uE03XLAAAFCklEQVR4nO2c2ZKjOBBFAWOzg9lsvLDZ/v9vHBvhmemumOZqJlE5pu95qRdFIE5JmakFWxYhhBBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIeQf8KPiUh+2W89r29YxTdepXhTQo7vDWhai2uuafVbm46Mfdjc3jo/njWFsW8mI0rMNtB4ua4iouzQfh9vR/m7+cgGwK8RFBF7V7+K13xJDuUiyDdL4mEirqHP3+8fDm/vUJT/FWoeyJkLHXffttNhclYsKau3Kuoju0Mw0xbnRcSEbL6Lt50yPCeUixOZIL5lH/Dpf+d10US6iDGrc14IuouuHpI8/+T4Xh3HdN9PnOruAotgg6aLbrf1uulyDV78SzIUrGS+qT5sis4sQc3GUzCPD2q+mzWnqV4DlEUkXxW3lN9Nnr3pWQo1jQRfbTyo5JzZaLnZy8SJoP87FPEd8LKcK5pHg/nGh086mniWgC7nNnOD6UWuRCTUukj1WXwhubJ3WfjN9mimnRntombQTrLWwkWiUk//qWIi5iAVrrY914WO1Viw4LsDdI5NkgcZ/6fj/dpHq9ExwXICV7pvz+XiM49hdk1jLhWDs9Pewh3jX91XjbOsi8cWe/4ueGa8vfDSnumPa1SYcvAn30JnAsBV7IupiyFrxg4hfk5yw+kLOBTorTz8ORT8pLpe6Phy2K6Ckh5iLm2Ddic3K8hDM7YOLdz9laZWPj0ffD8NOnruqLzAXsWkXsTNPkMQpx37tI9dMHf9g6xHzLi5qWGxzE2eu6VxrQbHTuIudanvZGVnUVho9s2PBPAI9UfUuNHSopOXiJuciRHLqedpRCLaGTg+UiwCrAgVzKuQiniK7fzdz7rpJ555hd1E8MRdQDe52PqpNgE2m9i8arL6QcwGNRNeZXBha0p6zKYH7mAvJ2Im4OHqvLBdiFyL+M7OLAHPhGp4j9uQ+MXU3IVWFHRYvXMHYCWWu2qiLSi2HsXWqoAtsXEz7q5EpF7nqGhaqY7k5En6gi1F1DasvBPMIlCjVHYfCUOx8150naI6YdqH2FE252JRqzY6d6Am6gOKF2lOMTOVUlUf8q+mcCo0L5SIx5iJ6PS4w7wIaF9McMTUuNsqF1ZieIwmSxdV9D1Mu7FKn1pKMnZCL6R6QuTyi9vgaqLHpGnyYXBgbF3N9gc0RtxVzAdXgDx0Xfdncnbb1/j3z2zXYfqdhFyPqIh69YOmJMFdsPSLnAtrvzJWLxYt1cSl4MSTAvuSQHBdIvKgmF8v1xeCI9es7XCSIixIcFw/Je+oWtr0qOEciJKeWU/GznFNH0e8jwfWI4LhAbkWp4qdYHBe5rAtsndrO0bpO86rMc6/NX6PzkOvXHdAtymx2sdQ5WRdYvHDfLqyi9fqz59TZ6xAyrOarkRpAOVW5WI4Xo+h3cFi8+HvsDKwyfn3Medv4VnF2dWVA97XUwXeyHDtlXWDfj/yYuyYZZfOszNshO+nJCJDb+Hv1oc9i7HyIXt25Iyrs40+xU8lw0t56NCc9GdDXweojhuV98EckJuJJB8XO8895RMm4XuwovuiNDOg2/uxicVz0ouMCcxF/qe/maWIN/WilOjKi57hY/F0FdXH/uR5ZaCcbL5zlnj2fefta604yqpPV2Z5f7jVkFMgPbsxNu6V2oi4CZ+l50zO3X1/24LxuSBys5O6//hBCCCGEEEIIIYQQQgghhBBCCCGEEEIIIYQQ8lvwBztxbS0dLqsXAAAAAElFTkSuQmCC" width="100">   
-<h1 class="title">F1 CARS</h1>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/F1.svg" width="80">
+    <h1 class="title">F1 CARS</h1>
 </header>
 
-<nav>
-<a href="#">F1 TEAMS</a>
-</nav>
 <h1 class="f1-heading">F1 Teams 2026</h1>
+
 <div class="container">
 
-<div class="car-box">
+<div class="car-box mercedes">
 <img src="https://media.formula1.com/image/upload/c_lfill,w_3392/q_auto/v1740000001/common/f1/2026/mercedes/2026mercedescarright.webp">
-<h3 class="f1-title">Mercedes F1</h3>
-<div class="drivers">
-<span>Lewis Hamilton</span>
-<span>George Russell</span>
-</div>
+<h3 class="f1-title">Mercedes</h3>
 </div>
 
-<div class="car-box">
+<div class="car-box ferrari">
 <img src="https://media.formula1.com/image/upload/c_lfill,w_3392/q_auto/v1740000001/common/f1/2026/ferrari/2026ferraricarright.webp">
-<h3 class="f1-title">Ferrari F1</h3>
+<h3 class="f1-title">Ferrari</h3>
 </div>
 
-<div class="car-box">
+<div class="car-box mclaren">
 <img src="https://media.formula1.com/image/upload/c_lfill,w_3392/q_auto/v1740000001/common/f1/2026/mclaren/2026mclarencarright.webp">
-<h3 class="f1-title">McLaren F1</h3>
+<h3 class="f1-title">McLaren</h3>
 </div>
 
-<div class="car-box">
-<img src="https://media.formula1.com/image/upload/c_lfill,w_3392/q_auto/v1740000001/common/f1/2026/haas/2026haascarright.webp">
-<h3 class="f1-title">Haas F1 Team</h3>
-</div>
-
-<div class="car-box">
-<img src="https://media.formula1.com/image/upload/c_lfill,w_3392/q_auto/v1740000001/common/f1/2026/alpine/2026alpinecarright.webp">
-<h3 class="f1-title">Alpine F1</h3>
-</div>
-
-<div class="car-box">
+<div class="car-box redbull">
 <img src="https://media.formula1.com/image/upload/c_lfill,w_3392/q_auto/v1740000001/common/f1/2026/redbullracing/2026redbullracingcarright.webp">
-<h3 class="f1-title">Red Bull Racing F1</h3>
+<h3 class="f1-title">Red Bull</h3>
 </div>
 
-<div class="car-box">
-<img src="https://media.formula1.com/image/upload/c_lfill,w_3392/q_auto/v1740000001/common/f1/2026/racingbulls/2026racingbullscarright.webp">
-<h3 class="f1-title">Racing Bulls F1</h3>
+<div class="car-box alpine">
+<img src="https://media.formula1.com/image/upload/c_lfill,w_3392/q_auto/v1740000001/common/f1/2026/alpine/2026alpinecarright.webp">
+<h3 class="f1-title">Alpine</h3>
 </div>
 
-<div class="car-box">
+<div class="car-box haas">
+<img src="https://media.formula1.com/image/upload/c_lfill,w_3392/q_auto/v1740000001/common/f1/2026/haas/2026haascarright.webp">
+<h3 class="f1-title">Haas</h3>
+</div>
+
+<div class="car-box audi">
 <img src="https://media.formula1.com/image/upload/c_lfill,w_3392/q_auto/v1740000001/common/f1/2026/audi/2026audicarright.webp">
-<h3 class="f1-title">Audi F1</h3>
+<h3 class="f1-title">Audi</h3>
 </div>
 
-<div class="car-box">
+<div class="car-box williams">
 <img src="https://media.formula1.com/image/upload/c_lfill,h_224/q_auto/d_common:f1:2026:fallback:car:2026fallbackcarright.webp/v1740000001/common/f1/2026/williams/2026williamscarright.webp">
-<h3 class="f1-title">Williams F1</h3>
+<h3 class="f1-title">Williams</h3>
 </div>
 
-<div class="car-box">
+<div class="car-box cadillac">
 <img src="https://media.formula1.com/image/upload/c_lfill,h_224/q_auto/d_common:f1:2026:fallback:car:2026fallbackcarright.webp/v1740000001/common/f1/2026/cadillac/2026cadillaccarright.webp">
-<h3 class="f1-title">Cadillac F1</h3>
+<h3 class="f1-title">Cadillac</h3>
 </div>
 
-<div class="car-box">
+<div class="car-box aston">
 <img src="https://media.formula1.com/image/upload/c_lfill,h_224/q_auto/d_common:f1:2026:fallback:car:2026fallbackcarright.webp/v1740000001/common/f1/2026/astonmartin/2026astonmartincarright.webp">
-<h3 class="f1-title">Aston Martin F1</h3>
+<h3 class="f1-title">Aston Martin</h3>
 </div>
 
 </div>
 
 <footer>
-    <p>F1 Teams 2026</p>
+website by jixii.code
 </footer>
 
 </body>
